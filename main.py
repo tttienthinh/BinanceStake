@@ -17,10 +17,10 @@ def binance():
     return result
 
 
-def telegram(message):
+def telegram(bot_message):
     bot_token = '1806732732:AAFxtjvhsucDPbOjBYSUzCNztqjntoI4Q-E'
     bot_chatID = '-572290585'
-    send_text = 'https://api.telegram.org/bot' + bot_token + '/sendMessage?chat_id=' + bot_chatID + '&parse_mode=Markdown&text=' + message
+    send_text = 'https://api.telegram.org/bot' + bot_token + '/sendMessage?chat_id=' + bot_chatID + '&parse_mode=Markdown&text=' + bot_message
 
     response = requests.get(send_text)
     return response.json()
@@ -28,17 +28,18 @@ def telegram(message):
 
 past_result = []
 while True:
+    print(time.asctime())
     result = binance()
     for data in result:
         if data not in past_result:
-            telegram(
-                "\n".join([
-                    data["asset"],
-                    f'{data["duration"]} days',
-                    f'{data["APY"]}% APY',
-                    time.asctime(),
-                ])
-            )
+            message = "\n".join([
+                data["asset"],
+                f'{data["duration"]} days',
+                f'{data["APY"]}% APY',
+                time.asctime(),
+            ])
+            print(message)
+            telegram(message)
     with open('result.pkl', 'wb') as f:
         pickle.dump(result, f)
         f.close()
