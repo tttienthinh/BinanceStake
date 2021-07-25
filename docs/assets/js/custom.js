@@ -40,9 +40,7 @@
             $(function () {
                 $.vegas('slideshow', {
                     backgrounds: [
-                      { src: 'assets/img/1.jpg', fade: 1000, delay: 9000 }, //CHANGE THESE IMAGES WITH YOUR ORIGINAL IMAGES
-                      { src: 'assets/img/2.jpg', fade: 1000, delay: 9000 }, //THESE IMAGES ARE FOR DEMO PURPOSE ONLY YOU, CAN NOT USE THEM WITHOUT AUTHORS PERMISSION
-                       { src: 'assets/img/3.jpg', fade: 1000, delay: 9000 }, 
+                      { src: 'assets/img/Wallpaper3.png', fade: 1000, delay: 9000 }, //CHANGE THESE IMAGES WITH YOUR ORIGINAL IMAGES
                      
                     ]
                 })('overlay', {
@@ -53,10 +51,10 @@
             });
 
        
-
-            /*====================================
+/*
+            ====================================
                SIDE MENU SCRIPTS BELOW 
-           ======================================*/
+           ======================================
             var menuLeft = document.getElementById('cbp-spmenu-s1'),
                menuRight = document.getElementById('cbp-spmenu-s2'),
            showLeftPush = document.getElementById('showLeftPush'),
@@ -84,7 +82,7 @@
                     classie.toggle(showRightPush, 'disabled');
                 }
             }
-
+*/
 
             /*====================================
                WRITE YOUR SCRIPTS BELOW 

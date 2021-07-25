@@ -2,7 +2,6 @@ import requests, json, pickle, time
 
 URL = "https://www.binance.com/gateway-api/v1/friendly/pos/union?pageSize=50&pageIndex=1&status=ALL"
 
-
 def binance():
     response = json.loads(requests.get(URL).text)["data"]
     result = []

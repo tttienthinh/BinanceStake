@@ -1,0 +1,6 @@
+EABD33 - jaune
+0C0F0A - noir
+519872 - vert
+A53F2B - rouge
+87BCDE - bleu
+586BA4 - bleu foncé
