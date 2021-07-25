@@ -1,6 +1,12 @@
 import requests, json, pickle, time
 
-URL = "https://www.binance.com/gateway-api/v1/friendly/pos/union?pageSize=50&pageIndex=1&status=ALL"
+with open('env.json', 'r') as fp:
+    env = json.load(fp)
+
+
+URL = env["URL"]
+bot_token = env["BinanceStakeBot"]
+bot_chatID = ''
 
 def binance():
     response = json.loads(requests.get(URL).text)["data"]
@@ -17,8 +23,6 @@ def binance():
 
 
 def telegram(bot_message):
-    bot_token = '1806732732:AAFxtjvhsucDPbOjBYSUzCNztqjntoI4Q-E'
-    bot_chatID = '-572290585'
     send_text = 'https://api.telegram.org/bot' + bot_token + '/sendMessage?chat_id=' + bot_chatID + '&parse_mode=Markdown&text=' + bot_message
 
     response = requests.get(send_text)
