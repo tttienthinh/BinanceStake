@@ -6,7 +6,7 @@ with open('env.json', 'r') as fp:
 
 URL = env["URL"]
 bot_token = env["BinanceStakeBot"]
-bot_chatID = ''
+bot_chatID = env["Channel id"]
 
 def binance():
     response = json.loads(requests.get(URL).text)["data"]
@@ -23,8 +23,7 @@ def binance():
 
 
 def telegram(bot_message):
-    send_text = 'https://api.telegram.org/bot' + bot_token + '/sendMessage?chat_id=' + bot_chatID + '&parse_mode=Markdown&text=' + bot_message
-
+    send_text = 'https://api.telegram.org/bot' + bot_token + '/sendMessage?channel_id=' + bot_chatID + '&text=' + bot_message
     response = requests.get(send_text)
     return response.json()
 
