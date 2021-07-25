@@ -30,20 +30,22 @@ past_result = []
 while True:
     print(time.asctime())
     result = binance()
+    message = ""
     for data in result:
         if data not in past_result:
-            message = "\n".join([
+            message += " ".join([
                 data["asset"],
                 f'{data["duration"]} days',
                 f'{data["APY"]}% APY',
-                time.asctime(),
-            ])
-            print(message)
-            telegram(message)
+            ]) + "\n"
+    if message != "":
+        message += "\n" + time.asctime()
+        print(message)
+        telegram(message)
     with open('result.pkl', 'wb') as f:
         pickle.dump(result, f)
         f.close()
-    time.sleep(3_600 - (time.time() % 3_600)) # Executing every hour
+    time.sleep(60 - (time.time() % 60)) # Executing every hour
 
     with open('result.pkl', 'rb') as f:
         past_result = pickle.load(f)
