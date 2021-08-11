@@ -1,0 +1,27 @@
+Binance Stake
+
+Website for the project: https://tttienthinh.github.io/BinanceStake/
+Contact @tttienthinh if you have any questions about this bot.
+
+-----
+
+Following commmands are available:
+
+/list - list of currencies to stake
+
+/subscribe - set up notifications (Locked staking)
+/subscribe_defi - set up notifications (DeFi staking)
+
+/unsubscribe - turn off notifications (Locked staking)
+/unsubscribe_defi - turn off notifications (DeFi staking)
+
+/settings - your current notification
+/help - displays commands
+
+-----
+
+For example, to get notified whenever locked staking of BNB for 30 and 60 days and all duration of ADA becomes available, write me the following message:
+/subscribe BNB-30,60 ADA
+
+To get notified whenever DeFi staking of BTC and ETH becomes available, write me the following message:
+/subscribe_defi BTC ETH
